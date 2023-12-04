@@ -1,0 +1,53 @@
+mutation {
+  createCustomer(name: "Suleman Iqbal", email: "sulemaniqbal@gmail.com", phoneNumber: "+92 555 666 444", address: "Lalazar M.T. Khan road Karachi" ) {
+    customer {
+      name
+      email
+      phoneNumber
+      address
+    }
+  }
+}
+
+mutation {
+  createService(
+    customer: "6" 
+    serviceType:"Plumbing Installation"
+    cost: 850.00
+    projectDescription: "Modernizing plumbing system for efficiency and reliability. From upgrading fixtures to improving water pressure, it's all about convenience."
+    expectedCompletionDate: "2023-09-25"
+  ) {
+    service {
+      serviceType
+      cost
+      expectedCompletionDate
+    }
+  }
+}
+
+mutation UpdateService {
+  updateService(
+    id: "3",
+    input: {
+      cost: 4500.00
+    }
+  ) {
+    service {
+      id
+      cost
+    }
+  }
+}
+
+
+mutation DeleteCustomer {
+  deleteCustomer(id: "6") {
+    success
+  }
+}
+
+mutation DeleteService {
+  deleteService(id: "1") {
+    success
+  }
+}
